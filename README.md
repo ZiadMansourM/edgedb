@@ -89,6 +89,10 @@ Applying migrations...
 Everything is up to date. Revision initial
 Project initialized.
 To connect to dbschema, run `edgedb`
+edgedb@173fc0d1b4ff:/dbschema$ edgedb
+EdgeDB 3.1+8e7e494 (repl 3.4.0+c7845b2)
+Type \help for help, \quit to quit.
+edgedb> \quit
 edgedb@deb15394678b:/dbschema$
 edgedb@deb15394678b:/dbschema$ ls
 dbschema  edgedb.toml
