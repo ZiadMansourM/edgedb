@@ -1,7 +1,24 @@
-# edgedb
+🐳 edgedb Example
+-----------------
 edgedb example using docker-compose
 
+🚨 Disclaimer
+----------
+I am running the following example on `MacBook Air M1` so I might use both `docker compose` and `docker-compose` it is only avaliable on M1 as far as I know.
 
+🔧 Prerequisites
+----------------
+- [X] Docker Desktop
+```console
+ziadh@Ziads-MacBook-Air edgedb % docker --version
+Docker version 20.10.16, build aa7e414
+ziadh@Ziads-MacBook-Air edgedb % docker-compose --version
+docker-compose version 1.29.2, build 5becea4c
+```
+
+🤓 Example
+----------
+Create a `docker-compose.yml` file inside an empty directory:
 ```console
 ziadh@Ziads-MacBook-Air edgedb % pwd                           
 /Users/ziadh/Desktop/work/databases/edgedb
@@ -11,7 +28,22 @@ ziadh@Ziads-MacBook-Air edgedb % tree -I "edgedb-data|dbschema"
 
 0 directories, 1 file
 ```
-
+Contents of the file:
+```yml
+version: "3"
+services:
+  edgedb:
+    image: edgedb/edgedb
+    container_name: edgedb
+    environment:
+      EDGEDB_SERVER_SECURITY: insecure_dev_mode
+    volumes:
+      - "./dbschema:/dbschema"
+      - "./edgedb-data:/var/lib/edgedb/data"
+    ports:
+      - "5656:5656"
+```
+Open your favv terminal in the same directory:
 ```console
 ziadh@Ziads-MacBook-Air edgedb % docker-compose ps  
 Name   Command   State   Ports
@@ -76,3 +108,7 @@ ziadh@Ziads-MacBook-Air edgedb % tree -I "edgedb-data"
 3 directories, 3 files
 ziadh@Ziads-MacBook-Air edgedb % 
 ```
+
+# 🍽️ Contrbutions
+-----------------
+Feel free to fork and pull request to add documentation 📝.
